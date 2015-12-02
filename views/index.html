@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html data-ng-app="nodeTodo">
+<head>
+	<title>Todo App - with Node + Express + Angular + PostgreSQL</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body data-ng-controller="mainController">
+	<div class="container">
+		<div class="header">
+			<h1>Todo App</h1>
+			<hr />
+			<h1 class="lead">NodeJS + Express + Angular + PostgreSQL</h1>
+		</div>
+		<div class="todo-form">
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control input-lg" placeholder="Add a todo..." data-ng-model="formData.text"/>
+				</div>
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo(formData)">Add a todo</button>
+			</form>
+		</div>
+		<br />
+		<ul data-ng-repeat="todo in todoData">
+			<li>
+				<h3>
+					<input type="checkbox" data-ng-click="deleteTodo(todo.id)" /> &nbsp; {{todo.text}}
+				</h3>
+				<hr />
+			</li>
+		</ul>
+	</div>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="javascripts/app.js"></script>
+</body>
+</html>
